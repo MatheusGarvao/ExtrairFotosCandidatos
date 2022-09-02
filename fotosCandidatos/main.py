@@ -60,7 +60,7 @@ def iniciar():
                     driver.find_element(By.XPATH, quantidadecandidatos)
                     .find_elements(By.TAG_NAME, 'tr'))
                 for x in range(1, inside + 1):
-                    anotar1 = driver.find_element_by_xpath(candidatos.format(x)).text
+                    anotar1 = driver.find_element(By.XPATH, candidatos.format(x)).text
                     time.sleep(1)
                     while pag == 0:
                         pag = 1
@@ -72,7 +72,7 @@ def iniciar():
                             pag = 0
                     pag = 0
                     while sair == 0:
-                        anotar2 = driver.find_element_by_xpath(candidatoimagem).get_attribute('src')
+                        anotar2 = driver.find_element(By.XPATH, candidatoimagem).get_attribute('src')
                         print(anotar1, " ", anotar2)
                         if anotar2 is None:
                             time.sleep(0.5)

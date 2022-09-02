@@ -723,3 +723,18 @@ console.warn: SearchSettings: "get: No settings file exists, new profile?" (new 
 1662122422084	Marionette	INFO	Listening on port 54228
 Read port: 54228
 1662122422175	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1662126419482	geckodriver	INFO	Listening on 127.0.0.1:53331
+1662126422566	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "53332" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\theus\\AppData\\Local\\Temp\\rust_mozprofile4AHvrS"
+1662126422821	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\theus\\AppData\\Local\\Temp\\rust_mozprofile4AHvrS\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:53332/devtools/browser/d41a351d-bcaf-4536-b968-f928c99cd2f9
+1662126424701	Marionette	INFO	Listening on port 53349
+Read port: 53349
+1662126424776	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1662126952875	addons.xpi	ERROR	System addon update list error Error: Failed downloading XML, status: 0, reason: timeout
+JavaScript warning: resource://devtools/client/shared/demangle.js, line 0: Successfully compiled asm.js code (total compilation time 48ms)
+console.warn: "Failed to enumerate CacheStorage for host https://divulgacandcontas.tse.jus.br: SecurityError: The operation is insecure."
+console.warn: "Failed to enumerate localStorage for host https://divulgacandcontas.tse.jus.br: SecurityError: The operation is insecure."
+console.warn: "Failed to enumerate sessionStorage for host https://divulgacandcontas.tse.jus.br: SecurityError: The operation is insecure."
+console.warn: "Failed to enumerate CacheStorage for host https://divulgacandcontas.tse.jus.br: SecurityError: The operation is insecure."
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE

@@ -716,3 +716,10 @@ JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
 
 ###!!! [Parent][PGPUParent] Error: RunMessage(msgname=PGPU::Msg_ShutdownVR) Channel closing: too late to send/recv, messages will be lost
 
+1662122416504	geckodriver	INFO	Listening on 127.0.0.1:54208
+1662122419640	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-no-remote" "-profile" "C:\\Users\\theus\\AppData\\Local\\Temp\\rust_mozprofileRZpmwm"
+1662122420067	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\theus\\AppData\\Local\\Temp\\rust_mozprofileRZpmwm\\search.json.mozlz4", (void 0)))
+1662122422084	Marionette	INFO	Listening on port 54228
+Read port: 54228
+1662122422175	RemoteAgent	WARN	TLS certificate errors will be ignored for this session

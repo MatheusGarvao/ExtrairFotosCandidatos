@@ -8,11 +8,16 @@ from selenium.webdriver.support import expected_conditions as EC
 import time
 import csv
 
+
 def iniciar():
-    with open('candidatos.csv', 'w', newline='') as f:
-        fieldnames = ['pessoa', 'foto']
+    with open('candidatos.csv', 'w', newline='') as f:  # abre o arquivo candidatos.csv para armazenar o nome e a foto
+        fieldnames = ['pessoa', 'foto']  # nomes das colunas em que será armazenado
         escrever = csv.DictWriter(f, fieldnames=fieldnames)
         escrever.writeheader()
+
+        # define o agente do usuário, caso esteja em outro sistema operacional, deve ser modificado de acordo com
+        # o navegador
+
         user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:97.0) Gecko/20100101 Firefox/97.0'
         firefox_options = Options()
         firefox_options.set_preference('general.useragent.override', user_agent)
@@ -25,17 +30,25 @@ def iniciar():
 
         driver = webdriver.Firefox(firefox_profile=profile)
 
+        # tse: insira a aba dos cargos referente ao estado em que deseja obter os dados.
+
         tse = "https://divulgacandcontas.tse.jus.br/divulga/#/municipios/2022/2040602022/BR/cargos"  # website governo
-        driver.get(tse)  # puxando o website
+        driver.get(tse)
         driver.maximize_window()
         driver.implicitly_wait(3000)
-        temp = driver.find_element(By.XPATH, "/html/body/div[2]/div[1]/div/div/section[3]/div/div/table/tbody")
-        temp = temp.find_elements(By.CLASS_NAME, "ng-scope")
+
+        # temp serve para saber a quantidade de cargos existentes
+        temp = driver.find_element(By.XPATH, "/html/body/div[2]/div[1]/div/div/section[3]/div/div/table/tbody")\
+            .find_elements(By.CLASS_NAME, "ng-scope")
+
+        # cada caminho destes serão usados ao longo do código.
         tamanho = len(temp)
         elemento = '/html/body/div[2]/div[1]/div/div/section[3]/div/div/table/tbody/tr[{}]/td'
         candidatos = '/html/body/div[2]/div[1]/div/div/section[3]/div/div/table[1]/tbody/tr[{}]/td[2]'
         candidatoimagem = '/html/body/div[2]/div[1]/div/div[1]/section[1]/div/div[1]/img'
         clicarcandidato = '/html/body/div[2]/div[1]/div/div/section[3]/div/div/table[1]/tbody/tr[{}]/td[1]/a'
+        quantidadecandidatos = '/html/body/div[2]/div[1]/div/div/section[3]/div/div/table[1]/tbody'
+
         sair = 0
         pag = 0
         for i in range(1, tamanho + 1):
@@ -44,7 +57,7 @@ def iniciar():
                 WebDriverWait(driver, 30000).until(EC.element_to_be_clickable((By.XPATH, elemento.format(i)))).click()
                 driver.implicitly_wait(3000)
                 inside = len(
-                    driver.find_element(By.XPATH, '/html/body/div[2]/div[1]/div/div/section[3]/div/div/table[1]/tbody')
+                    driver.find_element(By.XPATH, quantidadecandidatos)
                     .find_elements(By.TAG_NAME, 'tr'))
                 for x in range(1, inside + 1):
                     anotar1 = driver.find_element_by_xpath(candidatos.format(x)).text

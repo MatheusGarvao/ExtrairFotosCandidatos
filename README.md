@@ -42,4 +42,3 @@ na variável user_agent, substitua com o usuário de agente que você consegue o
 
 ## Autor
 - Linkedin - [@MatheusGarvao](https://www.linkedin.com/in/matheusgarvao/)
-- Youtube - [@Café De Terno](https://www.youtube.com/channel/UCLPpQ-uxz-eeOKr-Pjg4gbA)
